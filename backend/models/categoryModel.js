@@ -1,4 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //import mongoose from 'mongoose';  //get all categories from the database    //get all categories from the database    
+exports.getAllCategories = (req, res) => {
+    const Category = mongoose.model('Category');
+    Category.find({}, (err, categories) => {
+        if (err) {
+            res.send(err);
+        }   
+        res.json(categories);
+
+    }); 
+};
 
 // 1- create schema
 const categorySchema = new mongoose.Schema({
