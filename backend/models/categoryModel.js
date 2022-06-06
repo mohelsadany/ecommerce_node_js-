@@ -1,5 +1,4 @@
 const mongoose = require('mongoose'); //import mongoose from 'mongoose';  //get all categories from the database    //get all categories from the database    
-exports.getAllCategories = (req, res) => {
   // 1-create schema
   const categorySchema = new mongoose.Schema(
     {
@@ -16,12 +15,12 @@ exports.getAllCategories = (req, res) => {
       type: String,
       lowercase: true,
      }, 
+     image: String,
     },
      {timestamps: true}
-       );
-  }
+      );
 
 
 // 2- create model  //create model
 const CategoryModel = mongoose.model('Category', categorySchema);
-export default CategoryModel;
+module.exports = CategoryModel;
